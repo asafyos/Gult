@@ -5,10 +5,16 @@
 #pragma once
 
 #include <frc2/command/SubsystemBase.h>
+#include <ctre/Phoenix.h>
 
+#include "Constants.h"
+
+namespace neatt
+{
 class ShooterNoPID : public frc2::SubsystemBase {
  public:
   ShooterNoPID();
+    void Shoot(double power);
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.
@@ -16,6 +22,7 @@ class ShooterNoPID : public frc2::SubsystemBase {
   void Periodic() override;
 
  private:
-  // Components (e.g. motor controllers and sensors) should generally be
-  // declared private and exposed only through public methods.
+      WPI_VictorSPX m_leftShooterMotor{shtr::kRightMotorPort};
+      WPI_VictorSPX m_rightShooterMotor{shtr::kLeftMotorPort};
 };
+}

@@ -4,7 +4,14 @@
 
 #include "subsystems/ShooterNoPID.h"
 
+using namespace neatt;
+
 ShooterNoPID::ShooterNoPID() = default;
 
 // This method will be called once per scheduler run
 void ShooterNoPID::Periodic() {}
+
+void ShooterNoPID::Shoot(double power) {
+  m_leftShooterMotor.Set(power);
+  m_rightShooterMotor.Set(-power);
+}

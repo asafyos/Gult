@@ -21,3 +21,11 @@ namespace ctrl
         RIGHT_STICK_BUTTON = 10
     };
 } // ctrl
+
+
+namespace shtr
+{
+    constexpr int kRightMotorPort = 12;
+    constexpr int kLeftMotorPort = 11;
+
+}
