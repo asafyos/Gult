@@ -7,8 +7,11 @@
 #include <frc2/command/Command.h>
 #include <frc/XboxController.h>
 #include <frc2/command/button/JoystickButton.h>
+#include <frc2/command/RunCommand.h>
 
 #include "Constants.h"
+
+#include "subsystems/Chassis.h"
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
@@ -36,6 +39,10 @@ class RobotContainer {
   frc2::JoystickButton m_startButton{&m_controller, ctrl::JoystickButtons::START};     
   frc2::JoystickButton m_lStickButton{&m_controller, ctrl::JoystickButtons::LEFT_STICK_BUTTON};  
   frc2::JoystickButton m_rStickButton{&m_controller, ctrl::JoystickButtons::RIGHT_STICK_BUTTON}; 
+
+  // subsystems
+  neatt::Chassis m_chassis;
+  
 
   void ConfigureButtonBindings();
 };

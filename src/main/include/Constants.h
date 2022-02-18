@@ -21,3 +21,17 @@ namespace ctrl
         RIGHT_STICK_BUTTON = 10
     };
 } // ctrl
+
+namespace drv
+{
+    // set true for arcade false for tank
+    constexpr bool kArcadeMode = true;
+
+    constexpr int kRearRightMotorPort = 1;
+    constexpr int kFrontRightMotorPort = 2;
+    constexpr int kRearLeftMotorPort = 3;
+    constexpr int kFrontLeftMotorPort = 4;
+
+    constexpr double kDrvMinValue = .15;
+    
+} // drv
