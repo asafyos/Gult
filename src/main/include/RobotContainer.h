@@ -45,7 +45,7 @@ private:
   neatt::Chassis m_chassis;
   neatt::Storage m_storage;
 #ifdef NO_PID_SHOOT
-  neatt::ShooterNoPID m_shooterNoPid;
+  neatt::ShooterNoPID m_shooter;
 #else
   neatt::Shooter m_shooter;
 #endif
