@@ -9,7 +9,7 @@ RobotContainer::RobotContainer()
   // Initialize all of your commands and subsystems here
   this->m_chassis.SetDefaultCommand(frc2::RunCommand([this]
                                                      {
-    if (drv::kArcadeMode) { //arcade
+    if (this->m_chassis.GetIsArcade()) { //arcade
 
       double power = this->m_controller.GetLeftY();
       if (abs(power) < drv::kDrvMinValue)

@@ -22,6 +22,8 @@ namespace neatt
      */
     void Periodic() override;
 
+    bool GetIsArcade();
+
     void ArcadeDrive(double fwd, double rot, bool sqr);
     void TankDrive(double left, double right);
 

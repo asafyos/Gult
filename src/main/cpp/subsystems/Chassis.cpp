@@ -11,6 +11,10 @@ Chassis::Chassis() = default;
 // This method will be called once per scheduler run
 void Chassis::Periodic() {}
 
+bool GetIsArcade() {
+    return drv::kArcadeMode;
+}
+
 void Chassis::ArcadeDrive(double fwd, double rot, bool sqr)
 {
     m_robotDrive.ArcadeDrive(fwd, rot, true);
