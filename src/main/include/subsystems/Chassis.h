@@ -10,19 +10,22 @@
 #include <frc/drive/DifferentialDrive.h>
 #include "Constants.h"
 
-class Chassis : public frc2::SubsystemBase {
- public:
-  Chassis();
+namespace neatt
+{
+  class Chassis : public frc2::SubsystemBase
+  {
+  public:
+    Chassis();
 
-  /**
-   * Will be called periodically whenever the CommandScheduler runs.
-   */
-  void Periodic() override;
-  
-  void ArcadeDrive(double fwd, double rot, bool sqr);
-  void TankDrive(double left, double right);
+    /**
+     * Will be called periodically whenever the CommandScheduler runs.
+     */
+    void Periodic() override;
 
- private:
+    void ArcadeDrive(double fwd, double rot, bool sqr);
+    void TankDrive(double left, double right);
+
+  private:
     WPI_TalonSRX m_rearRightMotor{drv::kRearRightMotorPort};
     WPI_TalonSRX m_frontRightMotor{drv::kFrontRightMotorPort};
     WPI_TalonSRX m_rearLeftMotor{drv::kRearLeftMotorPort};
@@ -32,4 +35,5 @@ class Chassis : public frc2::SubsystemBase {
     frc::MotorControllerGroup m_left{m_rearLeftMotor, m_frontLeftMotor};
 
     frc::DifferentialDrive m_robotDrive{m_left, m_right};
-};
+  };
+}
