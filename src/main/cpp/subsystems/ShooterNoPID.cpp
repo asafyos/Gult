@@ -15,3 +15,7 @@ void ShooterNoPID::Shoot(double power) {
   m_leftShooterMotor.Set(power);
   m_rightShooterMotor.Set(-power);
 }
+
+double ShooterNoPID::GetEncoderRate() {
+  return (m_leftEncoder.GetRate() + m_rightEncoder.GetRate()) / 2;
+}

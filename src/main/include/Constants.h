@@ -28,4 +28,6 @@ namespace shtr
     constexpr int kRightMotorPort = 12;
     constexpr int kLeftMotorPort = 11;
 
+    constexpr int kRightEncoderPorts[] = {6, 7};
+    constexpr int kLeftEncoderPorts[] = {8, 9};
 }

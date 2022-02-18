@@ -6,6 +6,7 @@
 
 #include <frc2/command/SubsystemBase.h>
 #include <ctre/Phoenix.h>
+#include <frc/Encoder.h>
 
 #include "Constants.h"
 
@@ -15,6 +16,7 @@ class ShooterNoPID : public frc2::SubsystemBase {
  public:
   ShooterNoPID();
     void Shoot(double power);
+    double GetEncoderRate();
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.
@@ -24,5 +26,8 @@ class ShooterNoPID : public frc2::SubsystemBase {
  private:
       WPI_VictorSPX m_leftShooterMotor{shtr::kRightMotorPort};
       WPI_VictorSPX m_rightShooterMotor{shtr::kLeftMotorPort};
+
+      frc::Encoder m_leftEncoder{shtr::kLeftEncoderPorts[0], shtr::kLeftEncoderPorts[1]};
+      frc::Encoder m_rightEncoder{shtr::kRightEncoderPorts[0], shtr::kRightEncoderPorts[1]};
 };
 }
