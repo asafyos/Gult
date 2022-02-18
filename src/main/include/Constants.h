@@ -22,6 +22,15 @@ namespace ctrl
     };
 } // ctrl
 
+namespace shtr
+{
+    constexpr int kRightMotorPort = 12;
+    constexpr int kLeftMotorPort = 11;
+
+    constexpr int kRightEncoderPorts[] = {6, 7};
+    constexpr int kLeftEncoderPorts[] = {8, 9};
+} // shtr
+
 namespace drv
 {
     // set true for arcade false for tank
@@ -35,3 +44,10 @@ namespace drv
     constexpr double kDrvMinValue = .15;
     
 } // drv
+
+namespace strg
+{
+    constexpr int kMotorPort = 6;
+    constexpr double kPower = 0.5;
+    constexpr double kStorageTime = 3000.;
+}  // strg
