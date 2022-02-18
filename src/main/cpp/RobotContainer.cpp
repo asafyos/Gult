@@ -43,11 +43,10 @@ RobotContainer::RobotContainer()
 
 void RobotContainer::ConfigureButtonBindings()
 {
-  // Configure your button bindings here
+  m_xButton.WhileHeld(&m_shoot);
 }
 
 frc2::Command *RobotContainer::GetAutonomousCommand()
 {
-  // An example command will be run in autonomous
   return nullptr;
 }

@@ -2,14 +2,15 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-#define NO_PID_SHOOT
-
 #pragma once
+
+#define NO_PID_SHOOT
 
 #include <frc2/command/Command.h>
 #include <frc/XboxController.h>
 #include <frc2/command/button/JoystickButton.h>
 #include <frc2/command/RunCommand.h>
+#include <networktables/NetworkTableEntry.h>
 
 #include "Constants.h"
 
@@ -27,8 +28,9 @@
 #include "commands/Shoot.h"
 #endif
 
-class RobotContainer {
- public:
+class RobotContainer
+{
+public:
   RobotContainer();
 
   frc2::Command *GetAutonomousCommand();
@@ -46,6 +48,8 @@ private:
   frc2::JoystickButton m_startButton{&m_controller, ctrl::JoystickButtons::START};
   frc2::JoystickButton m_lStickButton{&m_controller, ctrl::JoystickButtons::LEFT_STICK_BUTTON};
   frc2::JoystickButton m_rStickButton{&m_controller, ctrl::JoystickButtons::RIGHT_STICK_BUTTON};
+  
+  nt::NetworkTableEntry m_distanceEntry;
 
   // subsystems
   neatt::Chassis m_chassis;
@@ -65,8 +69,6 @@ private:
 #endif
 
   // autonomous commands
-
-  // network
 
   void ConfigureButtonBindings();
 };

@@ -4,11 +4,21 @@
 
 #pragma once
 
+#include <units/time.h>
+#include <units/math.h>
+#include <units/angle.h>
+#include <units/length.h>
+#include <units/voltage.h>
+#include <units/acceleration.h>
+
+#include <math.h>
+
 namespace ctrl
 {
     constexpr int kControllerPort = 0;
 
-    enum JoystickButtons {
+    enum JoystickButtons
+    {
         A = 1,
         B = 2,
         X = 3,
@@ -31,6 +41,20 @@ namespace shtr
     constexpr int kLeftEncoderPorts[] = {8, 9};
 
     constexpr double kPower = 0.5;
+
+    constexpr double kP = 2.81;
+    constexpr double kI = .0;
+    constexpr double kD = .0;
+
+    constexpr double kEncoderDistancePerPulse = 1. / 200.;
+
+    constexpr double kShootTime = 3000.;
+
+    constexpr units::volt_t kS = 1.01_V;
+    constexpr auto kV = .269_V * 1_s / 1_tr;
+    constexpr auto kA = .102_V * 1_s * 1_s / 1_tr;
+
+    constexpr auto kTolerance = 2_tr / 1_s;
 } // shtr
 
 namespace drv
@@ -44,7 +68,7 @@ namespace drv
     constexpr int kFrontLeftMotorPort = 4;
 
     constexpr double kDrvMinValue = .15;
-    
+
 } // drv
 
 namespace strg
@@ -52,4 +76,4 @@ namespace strg
     constexpr int kMotorPort = 6;
     constexpr double kPower = 0.5;
     constexpr double kStorageTime = 3000.;
-}  // strg
+} // strg
