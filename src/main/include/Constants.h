@@ -29,6 +29,8 @@ namespace shtr
 
     constexpr int kRightEncoderPorts[] = {6, 7};
     constexpr int kLeftEncoderPorts[] = {8, 9};
+
+    constexpr double kPower = 0.5;
 } // shtr
 
 namespace drv

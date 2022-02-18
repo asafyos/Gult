@@ -21,6 +21,12 @@
 #include "subsystems/Shooter.h"
 #endif
 
+#ifdef NO_PID_SHOOT
+#include "commands/ShootNoPID.h"
+#else
+#include "commands/Shoot.h"
+#endif
+
 class RobotContainer {
  public:
   RobotContainer();
