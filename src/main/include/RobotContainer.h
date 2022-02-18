@@ -5,7 +5,10 @@
 #pragma once
 
 #include <frc2/command/Command.h>
+#include <frc/XboxController.h>
+#include <frc2/command/button/JoystickButton.h>
 
+#include "Constants.h"
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
@@ -20,8 +23,19 @@ class RobotContainer {
 
   frc2::Command* GetAutonomousCommand();
 
- private:
-  // The robot's subsystems and commands are defined here...
+ private:  
+  // controller
+  frc::XboxController m_controller{ctrl::kControllerPort};
+  frc2::JoystickButton m_aButton{&m_controller, ctrl::JoystickButtons::A};     
+  frc2::JoystickButton m_bButton{&m_controller, ctrl::JoystickButtons::B};     
+  frc2::JoystickButton m_xButton{&m_controller, ctrl::JoystickButtons::X};     
+  frc2::JoystickButton m_yButton{&m_controller, ctrl::JoystickButtons::Y};     
+  frc2::JoystickButton m_lbButton{&m_controller, ctrl::JoystickButtons::LEFT_BUMPER};  
+  frc2::JoystickButton m_rbButton{&m_controller, ctrl::JoystickButtons::RIGHT_BUMPER}; 
+  frc2::JoystickButton m_backButton{&m_controller, ctrl::JoystickButtons::BACK};     
+  frc2::JoystickButton m_startButton{&m_controller, ctrl::JoystickButtons::START};     
+  frc2::JoystickButton m_lStickButton{&m_controller, ctrl::JoystickButtons::LEFT_STICK_BUTTON};  
+  frc2::JoystickButton m_rStickButton{&m_controller, ctrl::JoystickButtons::RIGHT_STICK_BUTTON}; 
 
   void ConfigureButtonBindings();
 };
