@@ -50,5 +50,11 @@ private:
   neatt::Shooter m_shooter;
 #endif
 
+  // commands
+
+  // autonomous commands
+
+  // network
+
   void ConfigureButtonBindings();
 };
