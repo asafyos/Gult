@@ -54,7 +54,5 @@ private:
 
   // autonomous commands
 
-  // network
-
   void ConfigureButtonBindings();
 };
