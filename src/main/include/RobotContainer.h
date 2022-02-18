@@ -9,9 +9,11 @@
 #include <frc2/command/Command.h>
 #include <frc/XboxController.h>
 #include <frc2/command/button/JoystickButton.h>
+#include <frc2/command/RunCommand.h>
 
 #include "Constants.h"
 
+#include "subsystems/Chassis.h"
 #ifdef NO_PID_SHOOT
 #include "subsystems/ShooterNoPID.h"
 #else
@@ -47,6 +49,7 @@ private:
   frc2::JoystickButton m_rStickButton{&m_controller, ctrl::JoystickButtons::RIGHT_STICK_BUTTON};
 
   // subsystems
+  neatt::Chassis m_chassis;
 #ifdef NO_PID_SHOOT
   neatt::ShooterNoPID m_shooterNoPid;
 #else
