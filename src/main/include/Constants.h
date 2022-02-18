@@ -4,12 +4,20 @@
 
 #pragma once
 
-/**
- * The Constants header provides a convenient place for teams to hold robot-wide
- * numerical or boolean constants.  This should not be used for any other
- * purpose.
- *
- * It is generally a good idea to place constants into subsystem- or
- * command-specific namespaces within this header, which can then be used where
- * they are needed.
- */
+namespace ctrl
+{
+    constexpr int kControllerPort = 0;
+
+    enum JoystickButtons {
+        A = 1,
+        B = 2,
+        X = 3,
+        Y = 4,
+        LEFT_BUMPER = 5,
+        RIGHT_BUMPER = 6,
+        BACK = 7,
+        START = 8,
+        LEFT_STICK_BUTTON = 9,
+        RIGHT_STICK_BUTTON = 10
+    };
+} // ctrl
