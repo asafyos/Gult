@@ -51,6 +51,12 @@ private:
 #endif
 
   // commands
+#ifdef NO_PID_SHOOT
+  neatt::ShootNoPID m_shoot{&m_storage, &m_shooter};
+#else
+  neatt::Shoot m_shoot{&m_storage, &m_shooter, &m_distanceEntry, false};
+  neatt::Shoot m_shootAuto{&m_storage, &m_shooter, &m_distanceEntry, false};
+#endif
 
   // autonomous commands
 
