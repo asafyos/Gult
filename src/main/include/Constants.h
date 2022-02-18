@@ -4,12 +4,17 @@
 
 #pragma once
 
-/**
- * The Constants header provides a convenient place for teams to hold robot-wide
- * numerical or boolean constants.  This should not be used for any other
- * purpose.
- *
- * It is generally a good idea to place constants into subsystem- or
- * command-specific namespaces within this header, which can then be used where
- * they are needed.
- */
+
+namespace drv
+{
+    // set true for arcade false for tank
+    constexpr bool kArcadeMode = true;
+
+    constexpr int kRearRightMotorPort = 1;
+    constexpr int kFrontRightMotorPort = 2;
+    constexpr int kRearLeftMotorPort = 3;
+    constexpr int kFrontLeftMotorPort = 4;
+
+    constexpr double kDrvMinValue = .15;
+    
+} // drv

@@ -5,6 +5,10 @@
 #pragma once
 
 #include <frc2/command/SubsystemBase.h>
+#include <ctre/Phoenix.h>
+#include <frc/motorcontrol/MotorControllerGroup.h>
+#include <frc/drive/DifferentialDrive.h>
+#include "Constants.h"
 
 class Chassis : public frc2::SubsystemBase {
  public:
@@ -14,8 +18,18 @@ class Chassis : public frc2::SubsystemBase {
    * Will be called periodically whenever the CommandScheduler runs.
    */
   void Periodic() override;
+  
+  void ArcadeDrive(double fwd, double rot, bool sqr);
+  void TankDrive(double left, double right);
 
  private:
-  // Components (e.g. motor controllers and sensors) should generally be
-  // declared private and exposed only through public methods.
+    WPI_TalonSRX m_rearRightMotor{drv::kRearRightMotorPort};
+    WPI_TalonSRX m_frontRightMotor{drv::kFrontRightMotorPort};
+    WPI_TalonSRX m_rearLeftMotor{drv::kRearLeftMotorPort};
+    WPI_TalonSRX m_frontLeftMotor{drv::kFrontLeftMotorPort};
+
+    frc::MotorControllerGroup m_right{m_rearRightMotor, m_frontRightMotor};
+    frc::MotorControllerGroup m_left{m_rearLeftMotor, m_frontLeftMotor};
+
+    frc::DifferentialDrive m_robotDrive{m_left, m_right};
 };
