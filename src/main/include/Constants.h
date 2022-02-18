@@ -44,3 +44,10 @@ namespace drv
     constexpr double kDrvMinValue = .15;
     
 } // drv
+
+namespace strg
+{
+    constexpr int kMotorPort = 6;
+    constexpr double kPower = 0.5;
+    constexpr double kStorageTime = 3000.;
+}  // strg

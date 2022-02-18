@@ -14,22 +14,15 @@
 #include "Constants.h"
 
 #include "subsystems/Chassis.h"
+#include "subsystems/Storage.h"
 #ifdef NO_PID_SHOOT
 #include "subsystems/ShooterNoPID.h"
 #else
 #include "subsystems/Shooter.h"
 #endif
 
-/**
- * This class is where the bulk of the robot should be declared.  Since
- * Command-based is a "declarative" paradigm, very little robot logic should
- * actually be handled in the {@link Robot} periodic methods (other than the
- * scheduler calls).  Instead, the structure of the robot (including subsystems,
- * commands, and button mappings) should be declared here.
- */
-class RobotContainer
-{
-public:
+class RobotContainer {
+ public:
   RobotContainer();
 
   frc2::Command *GetAutonomousCommand();
@@ -50,6 +43,7 @@ private:
 
   // subsystems
   neatt::Chassis m_chassis;
+  neatt::Storage m_storage;
 #ifdef NO_PID_SHOOT
   neatt::ShooterNoPID m_shooterNoPid;
 #else
