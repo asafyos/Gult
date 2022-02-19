@@ -2,9 +2,9 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-#define NO_PID_SHOOT
-
 #pragma once
+
+#define NO_PID_SHOOT
 
 #include <frc2/command/Command.h>
 #include <frc/XboxController.h>
@@ -19,6 +19,12 @@
 #include "subsystems/ShooterNoPID.h"
 #else
 #include "subsystems/Shooter.h"
+#endif
+
+#ifdef NO_PID_SHOOT
+#include "commands/ShootNoPID.h"
+#else
+#include "commands/Shoot.h"
 #endif
 
 class RobotContainer {
@@ -51,6 +57,11 @@ private:
 #endif
 
   // commands
+#ifdef NO_PID_SHOOT
+  neatt::ShootNoPID m_shoot{&m_storage, &m_shooter};
+#else
+  neatt::Shoot m_shoot{&m_storage, &m_shooter};
+#endif
 
   // autonomous commands
 
